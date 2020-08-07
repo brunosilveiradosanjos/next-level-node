@@ -1,30 +1,12 @@
 import express from 'express';
+import routes from './routes';
 
 const app = express();
 
-
-app.get('/', (req, res) => {
-    console.log(req.query)
-    const users = [
-        { message: 'Hello World' }
-    ]
-    return res.json(users)
-})
-
-
-app.post('/user', (req, res) => {
-    const users = [
-        { name: 'Bruno', age: 29 },
-        { name: 'Giovana', age: 30 },
-        { name: 'Sarah', age: 0 }
-    ]
-    return res.json(users)
-})
-
-//localhost:3333/users
+app.use(express.json())
+app.use(routes);
 
 app.listen(3333);
-
 
 // GET:    Buscar ou listar uma informacao
 // POST:   Criar uma nova informacao
