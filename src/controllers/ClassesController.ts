@@ -91,7 +91,7 @@ export default class ClassesController {
             return res.status(201).send();
 
         } catch (err) {
-
+            console.log(err)
             res.status(400).json({
                 error: 'Unexpected error while creating new class'
             })
